@@ -20,6 +20,26 @@ const Menu = () => {
         gsap.fromTo('.details p', { yPercent: 100, opacity: 0 }, {
             yPercent: 0, opacity: 100, ease: 'power1.inOut'
         })
+
+        gsap.timeline({
+            scrollTrigger: {
+                trigger: "#menu",
+                start: "top top",
+                end: "bottom top",
+                scrub: true,
+            },
+        })
+            .to("#m-right-leaf", {
+                y: 120,
+                x: 60,
+                ease: "power1.inOut",
+            }, 0)
+
+            .to("#m-left-leaf", {
+                y: -120,
+                x: -60,
+                ease: "power1.inOut",
+            }, 0);
     }, [currentIndex]);
 
     const totalCocktails = allCocktails.length;
@@ -96,4 +116,4 @@ const Menu = () => {
         </section>
     )
 }
-export default Menu
+export default Menu;
